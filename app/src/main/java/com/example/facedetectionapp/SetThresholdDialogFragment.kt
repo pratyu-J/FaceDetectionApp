@@ -1,5 +1,4 @@
-package com.codelogist.zoeticaichallenge_face_detection
-
+package com.example.facedetectionapp
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +8,7 @@ import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import com.codelogist.zoeticaichallenge_face_detection.databinding.DialogSetThresholdBinding
+import com.example.facedetectionapp.databinding.DialogSetThresholdBinding
 
 class SetThresholdDialogFragment : DialogFragment() {
 

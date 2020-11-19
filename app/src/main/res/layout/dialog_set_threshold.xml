@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--<data>
+    <data>
         <variable
             name="threshold"
-            //import threshold
-    </data>-->
+            type="com.example.facedetectionapp.SetThresholdDialogFragment.Threshold" />
+    </data>
 
     <LinearLayout
         android:orientation="vertical"

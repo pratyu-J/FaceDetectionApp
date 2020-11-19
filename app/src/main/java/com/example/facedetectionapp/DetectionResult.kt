@@ -1,4 +1,4 @@
-package com.codelogist.zoeticaichallenge_face_detection
+package com.example.facedetectionapp
 
 import android.graphics.Rect
 import androidx.databinding.BaseObservable
