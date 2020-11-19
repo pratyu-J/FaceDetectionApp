@@ -1,5 +1,5 @@
 @file:Suppress("DEPRECATION")
-package com.codelogist.zoeticaichallenge_face_detection
+package com.example.facedetectionapp
 
 import android.Manifest
 import android.animation.ObjectAnimator
@@ -20,7 +20,11 @@ import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.codelogist.zoeticaichallenge_face_detection.databinding.ActivityMainBinding
+import com.example.facedetectionapp.DetectionResult
+import com.example.facedetectionapp.EngineWrapper
+import com.example.facedetectionapp.R
+import com.example.facedetectionapp.SetThresholdDialogFragment
+import com.example.facedetectionapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.launch
@@ -91,12 +95,7 @@ class MainActivity : AppCompatActivity(), SetThresholdDialogFragment.ThresholdDi
         binding.surface.holder.let {
             it.setFormat(ImageFormat.NV21)
             it.addCallback(object : SurfaceHolder.Callback, Camera.PreviewCallback {
-                override fun surfaceChanged(
-                        holder: SurfaceHolder?,
-                        format: Int,
-                        width: Int,
-                        height: Int
-                ) {
+                override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
                     if (holder?.surface == null) return
 
                     if (camera == null) return
@@ -121,13 +120,13 @@ class MainActivity : AppCompatActivity(), SetThresholdDialogFragment.ThresholdDi
                     setCameraDisplayOrientation()
                 }
 
-                override fun surfaceDestroyed(holder: SurfaceHolder?) {
+                override fun surfaceDestroyed(holder: SurfaceHolder) {
                     camera?.setPreviewCallback(null)
                     camera?.release()
                     camera = null
                 }
 
-                override fun surfaceCreated(holder: SurfaceHolder?) {
+                override fun surfaceCreated(holder: SurfaceHolder) {
                     try {
                         camera = Camera.open(cameraId)
                     } catch (e: Exception) {

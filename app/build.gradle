@@ -33,6 +33,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${archivesBaseName}_${defaultConfig.versionName}_${variant.buildType.name}.apk"
+        }
+    }
+
     dataBinding {
         enabled = true
     }
