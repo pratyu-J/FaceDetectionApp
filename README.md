@@ -1,2 +1,2 @@
 # FaceDetectionApp
-A face detection App
+A face detection App machine learning integrated
